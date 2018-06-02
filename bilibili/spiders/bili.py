@@ -17,7 +17,7 @@ class BiliSpider(scrapy.Spider):
     def start_requests(self):
         url1='https://space.bilibili.com/ajax/member/GetInfo'
         
-        for uid in range(50000,200000):        
+        for uid in range(1,3000000):        
             headers={
                     'User-Agent':random.choice(UAPOOL),
                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -94,19 +94,6 @@ class BiliSpider(scrapy.Spider):
                     print(e.code)
                 if hasattr(e,"reason"):
                     print(e.reason)
-            #测试数据类型
-            #print("userid:",type(item["userid"]))
-            #print("sex:",type(item["sex"]))
-            #print("level:",type(item["level"]))
-            #print("vipType:",type(item["vipType"]))
-            #print("vipStatu:",type(item["vipStatu"]))
-            #print("coins:",type(item["coins"]))
-            #print("follows:",type(item["follows"]))
-            #print("fans:",type(item["fans"]))
-            #print("play_num:",type(item["play_num"]))
-            #print("UID:",type(item["UID"]))
-            #print("register_time:",type(item["register_time"]))
-            #print("birthday:",type(item["birthday"]))
             yield item
         else:
             return None
